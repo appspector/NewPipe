@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
+import com.appspector.sdk.AppSpector;
 import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.squareup.leakcanary.AndroidHeapDumper;
@@ -35,7 +36,20 @@ public class DebugApp extends App {
     public void onCreate() {
         super.onCreate();
         initStetho();
+        initAppspector();
     }
+
+    private void initAppspector() {
+        AppSpector
+                .build(this)
+                .addPerformanceMonitor()
+                .addHttpMonitor()
+                .addLogMonitor()
+                .addScreenshotMonitor()
+                .addSQLMonitor()
+                .run("ZGFjMDJlNmUtMTg5NC00NDkyLTgzMWUtMTM1OGJiNWFiNzVh");
+    }
+
 
     @Override
     protected Downloader getDownloader() {
