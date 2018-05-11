@@ -20,10 +20,9 @@ allprojects {
     repositories {
         jcenter()
         google()
+        maven { url 'https://clojars.org/repo' }
+        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk" }
         maven { url 'https://maven.google.com' }
         maven { url 'https://jitpack.io' }
-        maven { url 'https://clojars.org/repo' }
-        maven { url "https://maven.appspector.com/artifactory/android-sdk" }
-        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk" }
     }
 }
