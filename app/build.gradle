@@ -9,8 +9,9 @@ android {
         applicationId "org.schabi.newpipe"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 62
-        versionName "0.13.3"
+        versionCode Integer.parseInt(System.getenv('CIRCLE_BUILD_NUM') ?: "0")
+        versionName "0.13.3-${System.getenv('APPSPECTOR_SDK_VERSION')}-${System.getenv('CIRCLE_BUILD_NUM')}"
+        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "ZGFjMDJlNmUtMTg5NC00NDkyLTgzMWUtMTM1OGJiNWFiNzVh") + "\""
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -95,5 +96,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     debugImplementation "com.facebook.stetho:stetho-okhttp3:$okHttpLibVersion"
 
-    implementation group: "com.appspector", name: "android-sdk", version: "0.5.0"
+    implementation "com.appspector:android-sdk:+"
 }

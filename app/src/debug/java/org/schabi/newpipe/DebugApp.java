@@ -47,7 +47,7 @@ public class DebugApp extends App {
                 .addLogMonitor()
                 .addScreenshotMonitor()
                 .addSQLMonitor()
-                .run("ZGFjMDJlNmUtMTg5NC00NDkyLTgzMWUtMTM1OGJiNWFiNzVh");
+                .run(BuildConfig.APPSPECTOR_API_KEY);
     }
 
 

@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+      docker:
+        - image: circleci/android:api-27-alpha
+      working_directory: ~/code
+      environment:
+        JVM_OPTS: -Xmx3200m
+      steps:
+        - checkout
+        - run:
+            name: Assemble build
+            command: ./gradlew :app:assembleDebug
+        - run:
+            name: Upload to HockeyApp
+            command: sh ./.circleci/hockeyapp-upload.sh
