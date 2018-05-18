@@ -9,9 +9,11 @@ android {
         applicationId "org.schabi.newpipe"
         minSdkVersion 16
         targetSdkVersion 27
+
         versionCode Integer.parseInt(System.getenv('CIRCLE_BUILD_NUM') ?: "0")
         versionName "0.13.3-${System.getenv('APPSPECTOR_SDK_VERSION')}-${System.getenv('CIRCLE_BUILD_NUM')}"
-        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "ZGFjMDJlNmUtMTg5NC00NDkyLTgzMWUtMTM1OGJiNWFiNzVh") + "\""
+
+        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "ZmNiZjNjOTItMjZkZi00ZWE4LTkyN2ItMGY3Y2M1OTJjMjUz") + "\""
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

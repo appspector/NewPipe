@@ -5,7 +5,7 @@ buildscript {
         jcenter()
         google()
         maven { url 'https://maven.google.com' }
-        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk" }
+        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk-beta" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
@@ -21,7 +21,7 @@ allprojects {
         jcenter()
         google()
         maven { url 'https://clojars.org/repo' }
-        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk" }
+        maven { url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk-beta" }
         maven { url 'https://maven.google.com' }
         maven { url 'https://jitpack.io' }
     }
